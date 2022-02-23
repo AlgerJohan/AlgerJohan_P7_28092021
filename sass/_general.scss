@@ -1,0 +1,83 @@
+h1 {
+  color: $headerColor;
+  font-size: 2rem;
+}
+.inputGlobal {
+  width: 100%;
+  position: relative;
+  i {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1.6rem;
+  }
+}
+.form-control {
+  background-color: $backgroundColor;
+}
+.primar {
+  background-color: $primaryColor;
+  color: #fff;
+}
+.btn-group {
+  .primary {
+    background-color: $primaryColor;
+    color: white;
+  }
+  .success {
+    background-color: $successColor;
+    color: white;
+  }
+  .dangerColor {
+    background-color: $dangerColor;
+    color: white;
+  }
+}
+#choice {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  #ingredientsList {
+    margin-right: 1.5rem;
+
+    .ingredientsList {
+      background-color: $primaryColor;
+      border: none;
+      border-radius: 4px;
+      height: 4rem;
+      width: 9.7rem;
+    }
+    .ingredientsList::placeholder {
+      text-align: center;
+      color: white;
+    }
+  }
+  #appareilsList {
+    margin-right: 1.5rem;
+
+    .appareilsList {
+      background-color: $successColor;
+      border: none;
+      border-radius: 4px;
+      height: 4rem;
+      width: 9.7rem;
+    }
+    .appareilsList::placeholder {
+      text-align: center;
+      color: white;
+    }
+  }
+  #ustensilesList {
+    .ustensilesList {
+      background-color: $dangerColor;
+      border: none;
+      border-radius: 4px;
+      height: 4rem;
+      width: 9.7rem;
+    }
+    .ustensilesList::placeholder {
+      text-align: center;
+      color: white;
+    }
+  }
+}

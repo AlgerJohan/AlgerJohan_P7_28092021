@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/fa2a0cb0ef.js" crossorigin="anonymous"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Les Petits Plats</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- LOGO -->
+      <div class="text-center mt-5 mb-5">
+        <img src="./img/icon.svg" alt="Logo" />
+        <h1>Les Petits Plats</h1>
+      </div>
+      <!-- SEARCH -->
+      <div class="inputGlobal">
+        <input type="text" class="form-control py-3" placeholder="Rechercher une recette" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <!-- BUTTON -->
+      <button type="button" class="primar btn position-relative mt-4 mb-3">
+        Inbox
+        <img src="./img/cross.svg" alt="Cross" />
+      </button>
+
+      <!-- RECIPES -->
+      <div id="choice">
+        <div id="ingredientsList">
+          <input list="ingredients" type="text" class="ingredientsList" placeholder="Ingredients" />
+          <datalist id="ingredients">
+            <option class="showIngredients"></option>
+          </datalist>
+        </div>
+        <div id="appareilsList">
+          <input list="appareils" type="text" class="appareilsList" placeholder="Appareils" />
+          <datalist id="appareils">
+            <option class="showAppareils"></option>
+          </datalist>
+        </div>
+        <div id="ustensilesList">
+          <input list="ustensiles" type="text" class="ustensilesList" placeholder="Ustensiles" />
+          <datalist id="ustensiles">
+            <option class="showUstensiles"></option>
+          </datalist>
+        </div>
+      </div>
+      <!-- CARD -->
+      <div class="d-flex">
+        <div class="card mb-5 mx-5 ms-0">
+          <img src="./img/fotomelia-free-images-download-public-domain-8.jpg" class="card-img-top" alt="" />
+
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title">Card title</h5>
+              <img src="./img/clock.svg" alt="clock" />
+              <p>min</p>
+            </div>
+            <p class="card-text"></p>
+          </div>
+        </div>
+
+        <div class="card mb-5 mx-5 ms-0" aria-hidden="true">
+          <img src="./img/fotomelia-free-images-download-public-domain-8.jpg" class="card-img-top" alt="" />
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <img src="./img/clock.svg" alt="clock" />
+              <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+          </div>
+        </div>
+        <div class="card mb-5">
+          <img src="./img/fotomelia-free-images-download-public-domain-8.jpg" class="card-img-top" alt="" />
+
+          <div class="card-body">
+            <h5 class="card-title">Card title<img src="./img/clock.svg" alt="clock" /></h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div class="card mx-5 ms-0">
+          <img src="./img/fotomelia-free-images-download-public-domain-8.jpg" class="card-img-top" alt="" />
+
+          <div class="card-body">
+            <h5 class="card-title">Card title<img src="./img/clock.svg" alt="clock" /></h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </p>
+          </div>
+        </div>
+
+        <div class="card mx-5 ms-0" aria-hidden="true">
+          <img src="./img/fotomelia-free-images-download-public-domain-8.jpg" class="card-img-top" alt="" />
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <img src="./img/clock.svg" alt="clock" />
+              <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./img/fotomelia-free-images-download-public-domain-8.jpg" class="card-img-top" alt="" />
+
+          <div class="card-body">
+            <h5 class="card-title">Card title<img src="./img/clock.svg" alt="clock" /></h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/recipes.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

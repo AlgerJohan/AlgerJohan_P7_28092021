@@ -1,0 +1,106 @@
+h1 {
+  color: #d04f4f;
+  font-size: 2rem;
+}
+
+.inputGlobal {
+  width: 100%;
+  position: relative;
+}
+.inputGlobal i {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1.6rem;
+}
+
+.form-control {
+  background-color: #e7e7e7;
+}
+
+.primar {
+  background-color: #3282f7;
+  color: #fff;
+}
+
+.btn-group .primary {
+  background-color: #3282f7;
+  color: white;
+}
+.btn-group .success {
+  background-color: #68d9a4;
+  color: white;
+}
+.btn-group .dangerColor {
+  background-color: #ed6454;
+  color: white;
+}
+
+#choice {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+#choice #ingredientsList {
+  margin-right: 1.5rem;
+}
+#choice #ingredientsList .ingredientsList {
+  background-color: #3282f7;
+  border: none;
+  border-radius: 4px;
+  height: 4rem;
+  width: 9.7rem;
+}
+#choice #ingredientsList .ingredientsList::-moz-placeholder {
+  text-align: center;
+  color: white;
+}
+#choice #ingredientsList .ingredientsList:-ms-input-placeholder {
+  text-align: center;
+  color: white;
+}
+#choice #ingredientsList .ingredientsList::placeholder {
+  text-align: center;
+  color: white;
+}
+#choice #appareilsList {
+  margin-right: 1.5rem;
+}
+#choice #appareilsList .appareilsList {
+  background-color: #68d9a4;
+  border: none;
+  border-radius: 4px;
+  height: 4rem;
+  width: 9.7rem;
+}
+#choice #appareilsList .appareilsList::-moz-placeholder {
+  text-align: center;
+  color: white;
+}
+#choice #appareilsList .appareilsList:-ms-input-placeholder {
+  text-align: center;
+  color: white;
+}
+#choice #appareilsList .appareilsList::placeholder {
+  text-align: center;
+  color: white;
+}
+#choice #ustensilesList .ustensilesList {
+  background-color: #ed6454;
+  border: none;
+  border-radius: 4px;
+  height: 4rem;
+  width: 9.7rem;
+}
+#choice #ustensilesList .ustensilesList::-moz-placeholder {
+  text-align: center;
+  color: white;
+}
+#choice #ustensilesList .ustensilesList:-ms-input-placeholder {
+  text-align: center;
+  color: white;
+}
+#choice #ustensilesList .ustensilesList::placeholder {
+  text-align: center;
+  color: white;
+}/*# sourceMappingURL=style.css.map */
