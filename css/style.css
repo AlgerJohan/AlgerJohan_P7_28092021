@@ -103,4 +103,24 @@ h1 {
 #choice #ustensilesList .ustensilesList::placeholder {
   text-align: center;
   color: white;
+}
+
+.card-text .ingredientRecipe p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+}
+.card-text .descriptionRecipe p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+}
+
+.backgroundColor {
+  background-color: #e7e7e7;
+  border-radius: 0 0 7px 7px;
 }/*# sourceMappingURL=style.css.map */
