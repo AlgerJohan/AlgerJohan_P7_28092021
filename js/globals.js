@@ -13,3 +13,16 @@ function clearText(text) {
     .toLowerCase();
   return text;
 }
+
+/**
+ * Ajoute des options dans un datalist d'un dropdown
+ * @param {array} list Tableau de valeurs
+ * @param {string} target ID de l'élément HTML qui contient la liste
+ */
+function datalist(list, target) {
+  let html = "";
+  list.forEach((element) => {
+    html += `<option value="${element}"></option>`;
+  });
+  document.querySelector(target).innerHTML = html;
+}
