@@ -18,12 +18,23 @@ function init() {
     recipesFiltred = recipes.filter((recipe) => {
       return (
         clearText(recipe.name).includes(clearText(searchText)) ||
-        recipe.ingredients.some((ingredient) => clearText(ingredient.ingredient).includes(clearText(searchText)))
+        recipe.ingredients.some((ingredient) => clearText(ingredient.ingredient).includes(clearText(searchText))) ||
+        recipe.description.includes(searchText)
       );
     });
   } else {
     recipesFiltred = recipes;
   }
+  console.log(badgeList);
+  if (badgeList != []) {
+    recipesFiltred = recipesFiltred.filter((recipe) => {
+      return recipe.ingredients.filter((ingredient) => badgeList.includes(clearText(ingredient.ingredient)));
+    });
+  } else {
+    recipesFiltred = recipesFiltred;
+    console.log("pas de filtre");
+  }
+
   //Création des cards avec les recettes filtrées et les afficher
   cardsFactory(recipesFiltred);
 
