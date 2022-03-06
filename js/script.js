@@ -6,35 +6,47 @@ let ustensilesList = [];
 function init() {
   let searchText = document.querySelector(".form-control").value;
   searchText = searchText.length > 2 ? searchText : "";
-  const badgeListNode = document.querySelectorAll(".badge");
-  let badgeList = [];
-  badgeListNode.forEach((badge) => {
-    badgeList.push(badge.innerText);
-  });
-  console.log(badgeList);
-  //Filtre des recettes
+  //Filtre des recettes dans l'onglet recherche
   let recipesFiltred = "";
   if (searchText) {
     recipesFiltred = recipes.filter((recipe) => {
       return (
         clearText(recipe.name).includes(clearText(searchText)) ||
         recipe.ingredients.some((ingredient) => clearText(ingredient.ingredient).includes(clearText(searchText))) ||
-        recipe.description.includes(searchText)
+        recipe.description.includes(clearText(searchText))
       );
     });
   } else {
     recipesFiltred = recipes;
   }
-  console.log(badgeList);
-  if (badgeList != []) {
-    recipesFiltred = recipesFiltred.filter((recipe) => {
-      return recipe.ingredients.filter((ingredient) => badgeList.includes(clearText(ingredient.ingredient)));
-    });
-  } else {
-    recipesFiltred = recipesFiltred;
-    console.log("pas de filtre");
-  }
 
+  //Filtres des recettes par ingrédients (dropdown)
+  const tagIngredientList = tagListFactory(".ingredientstags");
+  if (tagIngredientList.length > 0) {
+    tagIngredientList.forEach((tag) => {
+      recipesFiltred = recipesFiltred.filter((recipe) => {
+        return recipe.ingredients.some((ingredient) => clearText(ingredient.ingredient).includes(clearText(tag)));
+      });
+    });
+  }
+  //Filtres des recettes par appareils (dropdown)
+  const tagAppareilsList = tagListFactory(".appareilstags");
+  if (tagAppareilsList.length > 0) {
+    tagAppareilsList.forEach((tag) => {
+      recipesFiltred = recipesFiltred.filter((recipe) => {
+        return clearText(recipe.appliance).includes(clearText(tag));
+      });
+    });
+  }
+  //Filtres des recettes par ustensiles (dropdown)
+  const tagUstensilesList = tagListFactory(".ustensilestags");
+  if (tagUstensilesList.length > 0) {
+    tagUstensilesList.forEach((tag) => {
+      recipesFiltred = recipesFiltred.filter((recipe) => {
+        return recipe.ustensils.some((ustensile) => clearText(ustensile).includes(clearText(tag)));
+      });
+    });
+  }
   //Création des cards avec les recettes filtrées et les afficher
   cardsFactory(recipesFiltred);
 
@@ -46,13 +58,19 @@ function init() {
   recipesFiltred.forEach((recipe) => {
     recipe.ingredients.forEach((ingredient) => {
       const ingredientName = clearText(ingredient.ingredient);
-      ingredientsList.includes(ingredientName) ? null : ingredientsList.push(ingredientName);
+      ingredientsList.includes(ingredientName) || tagIngredientList.includes(ingredientName)
+        ? null
+        : ingredientsList.push(ingredientName);
     });
     const appareilName = clearText(recipe.appliance);
-    appareilsList.includes(appareilName) ? null : appareilsList.push(appareilName);
+    appareilsList.includes(appareilName) || tagAppareilsList.includes(appareilName)
+      ? null
+      : appareilsList.push(appareilName);
     recipe.ustensils.forEach((ustensil) => {
       const ustensilName = clearText(ustensil);
-      ustensilesList.includes(ustensilName) ? null : ustensilesList.push(ustensilName);
+      ustensilesList.includes(ustensilName) || tagUstensilesList.includes(ustensilName)
+        ? null
+        : ustensilesList.push(ustensilName);
     });
   });
   //Ajoute les options des dropdowns
@@ -65,20 +83,21 @@ init();
 document.querySelector(".form-control").addEventListener("input", (e) => {
   init();
 });
-document.querySelector(".ingredientsList").addEventListener("change", (e) => {
-  const badges = document.querySelector(".badges");
-  const badge = document.createElement("button");
-  badge.classList.add("badge", "color", "btn", "position-relative", "me-2");
-  badge.setAttribute("type", "button");
-  badge.innerHTML = `${e.target.value}<img src="./img/cross.svg" alt="Cross" class="ms-2"/>`;
-  badge.addEventListener("click", deleteBadge);
-  badges.appendChild(badge);
-  //Réinitialisation de la valeur de la recherche du dropdown
-  e.target.value = "";
-  init();
-});
 
-function deleteBadge() {
-  this.remove();
-  init();
+function onDropdownChange(dropdownClass, tagTargetClass, primaryColor, successColor, dangerColor) {
+  document.querySelector(dropdownClass).addEventListener("change", (e) => {
+    const tags = document.querySelector(tagTargetClass);
+    const tag = document.createElement("button");
+    tag.classList.add("tag", primaryColor, successColor, dangerColor, "btn", "position-relative", "me-2");
+    tag.setAttribute("type", "button");
+    tag.innerHTML = `${e.target.value}<img src="./img/cross.svg" alt="Cross" class="ms-2"/>`;
+    tag.addEventListener("click", deletetag);
+    tags.appendChild(tag);
+    //Réinitialisation de la valeur de la recherche du dropdown
+    e.target.value = "";
+    init();
+  });
 }
+onDropdownChange(".ingredientsList", ".ingredientsTags", "primaryColor");
+onDropdownChange(".appareilsList", ".appareilsTags", "successColor");
+onDropdownChange(".ustensilesList", ".ustensilesTags", "dangerColor");

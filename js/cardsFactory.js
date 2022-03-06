@@ -2,8 +2,9 @@ function cardsFactory(recipesFiltred) {
   const cards = document.querySelector(".cards");
   //pour chaque recette tu vas faire la fonction qui suit
   let allCards = ""; // allCards = allHtml et newCard = newHtml
-  recipesFiltred.forEach((recipe) => {
-    let newCard = `
+  if (recipesFiltred.length > 0) {
+    recipesFiltred.forEach((recipe) => {
+      let newCard = `
  <div class="card col-4 p-3 border-0">
  <img src="./img/fotomelia-free-images-download-public-domain-8.jpg" class="card-img-top" alt="" />
  <div class="card-body backgroundColor">
@@ -14,25 +15,39 @@ function cardsFactory(recipesFiltred) {
   </div>
   <div class="card-text row my-3">
     <div class="col-6 ingredientRecipe">`;
-    for (let i = 0; i < 5; i++) {
-      const ingredient = recipe.ingredients[i];
-      if (ingredient) {
-        newCard += `<p><strong>${ingredient.ingredient}</strong>`;
-        if (ingredient.quantity) {
-          newCard += `<strong>:</strong> ${ingredient.quantity}`;
-          newCard += ingredient.unit ? ` ${ingredient.unit}` : "";
+      for (let i = 0; i < 5; i++) {
+        const ingredient = recipe.ingredients[i];
+        if (ingredient) {
+          newCard += `<p><strong>${ingredient.ingredient}</strong>`;
+          if (ingredient.quantity) {
+            newCard += `<strong>:</strong> ${ingredient.quantity}`;
+            newCard += ingredient.unit ? ` ${ingredient.unit}` : "";
+          }
+          newCard += `</p>`;
         }
-        newCard += `</p>`;
       }
-    }
-    newCard += recipe.ingredients.length > 5 ? "<p>...</p>" : "";
-    newCard += `
+      newCard += recipe.ingredients.length > 5 ? "<p>...</p>" : "";
+      newCard += `
       </div>
       <div class="col-6 descriptionRecipe"><p>${recipe.description}</p></div>
       </div>
     </div>
 </div>`;
-    allCards += newCard;
+      allCards += newCard;
+    });
+    cards.innerHTML = allCards;
+  } else {
+    cards.innerHTML = `<div class="col-12 text-center"><h2>Aucune recette ne correspond à votre critère… vous pouvez
+  chercher « tarte aux pommes », « poisson », etc.
+  </h2></div>`;
+  }
+  cards.addEventListener("click", (e) => {
+    let person = prompt("Choisissez une recette :", "Smoothie");
+    let text;
+    if (person == null || person == "") {
+      text = "Entrez une recette.";
+    } else {
+      text = "Bonjour " + person + "! Que voulez-vous manger?";
+    }
   });
-  cards.innerHTML = allCards;
 }

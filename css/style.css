@@ -18,22 +18,19 @@ h1 {
   background-color: #e7e7e7;
 }
 
-.color {
+.primaryColor {
   background-color: #3282f7;
   color: #fff;
 }
 
-.btn-group .primary {
-  background-color: #3282f7;
-  color: white;
-}
-.btn-group .success {
+.successColor {
   background-color: #68d9a4;
-  color: white;
+  color: #fff;
 }
-.btn-group .dangerColor {
+
+.dangerColor {
   background-color: #ed6454;
-  color: white;
+  color: #fff;
 }
 
 #choice {

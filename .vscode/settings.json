@@ -1,4 +1,13 @@
 {
-  "cSpell.words": ["dropdowns", "Filtred", "Lowenski", "ustensil", "ustensils"],
+  "cSpell.words": [
+    "appareilstags",
+    "dropdowns",
+    "Filtred",
+    "ingredientstags",
+    "Lowenski",
+    "ustensil",
+    "ustensilestags",
+    "ustensils"
+  ],
   "liveServer.settings.port": 5501
 }

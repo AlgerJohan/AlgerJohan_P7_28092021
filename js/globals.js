@@ -26,3 +26,20 @@ function datalist(list, target) {
   });
   document.querySelector(target).innerHTML = html;
 }
+
+function deletetag() {
+  this.remove();
+  init();
+}
+/*
+ * Création d'une liste de tags
+ */
+function tagListFactory(source) {
+  //Crée la liste des tags ingrédients
+  const tagListNode = document.querySelectorAll(source + " .tag");
+  let tagList = [];
+  tagListNode.forEach((tag) => {
+    tagList.push(tag.innerText);
+  });
+  return tagList;
+}

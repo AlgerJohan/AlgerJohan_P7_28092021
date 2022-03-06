@@ -15,24 +15,20 @@ h1 {
 .form-control {
   background-color: $backgroundColor;
 }
-.color {
+
+.primaryColor {
   background-color: $primaryColor;
   color: #fff;
 }
-.btn-group {
-  .primary {
-    background-color: $primaryColor;
-    color: white;
-  }
-  .success {
-    background-color: $successColor;
-    color: white;
-  }
-  .dangerColor {
-    background-color: $dangerColor;
-    color: white;
-  }
+.successColor {
+  background-color: $successColor;
+  color: #fff;
 }
+.dangerColor {
+  background-color: $dangerColor;
+  color: #fff;
+}
+
 #choice {
   display: flex;
   flex-wrap: wrap;
