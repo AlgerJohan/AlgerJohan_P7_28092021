@@ -21,29 +21,29 @@ function init() {
   }
 
   //Filtres des recettes par ingrédients (dropdown)
-  const tagIngredientList = tagListFactory(".ingredientstags");
-  if (tagIngredientList.length > 0) {
-    tagIngredientList.forEach((tag) => {
+  const badgeIngredientList = badgeListFactory(".ingredientsBadges");
+  if (badgeIngredientList.length > 0) {
+    badgeIngredientList.forEach((badge) => {
       recipesFiltred = recipesFiltred.filter((recipe) => {
-        return recipe.ingredients.some((ingredient) => clearText(ingredient.ingredient).includes(clearText(tag)));
+        return recipe.ingredients.some((ingredient) => clearText(ingredient.ingredient).includes(clearText(badge)));
       });
     });
   }
   //Filtres des recettes par appareils (dropdown)
-  const tagAppareilsList = tagListFactory(".appareilstags");
-  if (tagAppareilsList.length > 0) {
-    tagAppareilsList.forEach((tag) => {
+  const badgeAppareilsList = badgeListFactory(".appareilsBadges");
+  if (badgeAppareilsList.length > 0) {
+    badgeAppareilsList.forEach((badge) => {
       recipesFiltred = recipesFiltred.filter((recipe) => {
-        return clearText(recipe.appliance).includes(clearText(tag));
+        return clearText(recipe.appliance).includes(clearText(badge));
       });
     });
   }
   //Filtres des recettes par ustensiles (dropdown)
-  const tagUstensilesList = tagListFactory(".ustensilestags");
-  if (tagUstensilesList.length > 0) {
-    tagUstensilesList.forEach((tag) => {
+  const badgeUstensilesList = badgeListFactory(".ustensilesBadges");
+  if (badgeUstensilesList.length > 0) {
+    badgeUstensilesList.forEach((badge) => {
       recipesFiltred = recipesFiltred.filter((recipe) => {
-        return recipe.ustensils.some((ustensile) => clearText(ustensile).includes(clearText(tag)));
+        return recipe.ustensils.some((ustensile) => clearText(ustensile).includes(clearText(badge)));
       });
     });
   }
@@ -58,17 +58,17 @@ function init() {
   recipesFiltred.forEach((recipe) => {
     recipe.ingredients.forEach((ingredient) => {
       const ingredientName = clearText(ingredient.ingredient);
-      ingredientsList.includes(ingredientName) || tagIngredientList.includes(ingredientName)
+      ingredientsList.includes(ingredientName) || badgeIngredientList.includes(ingredientName)
         ? null
         : ingredientsList.push(ingredientName);
     });
     const appareilName = clearText(recipe.appliance);
-    appareilsList.includes(appareilName) || tagAppareilsList.includes(appareilName)
+    appareilsList.includes(appareilName) || badgeAppareilsList.includes(appareilName)
       ? null
       : appareilsList.push(appareilName);
     recipe.ustensils.forEach((ustensil) => {
       const ustensilName = clearText(ustensil);
-      ustensilesList.includes(ustensilName) || tagUstensilesList.includes(ustensilName)
+      ustensilesList.includes(ustensilName) || badgeUstensilesList.includes(ustensilName)
         ? null
         : ustensilesList.push(ustensilName);
     });
@@ -84,20 +84,20 @@ document.querySelector(".form-control").addEventListener("input", (e) => {
   init();
 });
 
-function onDropdownChange(dropdownClass, tagTargetClass, primaryColor, successColor, dangerColor) {
+function onDropdownChange(dropdownClass, badgeTargetClass, primaryColor, successColor, dangerColor) {
   document.querySelector(dropdownClass).addEventListener("change", (e) => {
-    const tags = document.querySelector(tagTargetClass);
-    const tag = document.createElement("button");
-    tag.classList.add("tag", primaryColor, successColor, dangerColor, "btn", "position-relative", "me-2");
-    tag.setAttribute("type", "button");
-    tag.innerHTML = `${e.target.value}<img src="./img/cross.svg" alt="Cross" class="ms-2"/>`;
-    tag.addEventListener("click", deletetag);
-    tags.appendChild(tag);
+    const badges = document.querySelector(badgeTargetClass);
+    const badge = document.createElement("button");
+    badge.classList.add("badge", primaryColor, successColor, dangerColor, "btn", "position-relative", "me-2");
+    badge.setAttribute("type", "button");
+    badge.innerHTML = `${e.target.value}<img src="./img/cross.svg" alt="Cross" class="ms-2"/>`;
+    badge.addEventListener("click", deleteBadge);
+    badges.appendChild(badge);
     //Réinitialisation de la valeur de la recherche du dropdown
     e.target.value = "";
     init();
   });
 }
-onDropdownChange(".ingredientsList", ".ingredientsTags", "primaryColor");
-onDropdownChange(".appareilsList", ".appareilsTags", "successColor");
-onDropdownChange(".ustensilesList", ".ustensilesTags", "dangerColor");
+onDropdownChange(".ingredientsList", ".ingredientsBadges", "primaryColor");
+onDropdownChange(".appareilsList", ".appareilsBadges", "successColor");
+onDropdownChange(".ustensilesList", ".ustensilesBadges", "dangerColor");

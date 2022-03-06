@@ -27,19 +27,19 @@ function datalist(list, target) {
   document.querySelector(target).innerHTML = html;
 }
 
-function deletetag() {
+function deleteBadge() {
   this.remove();
   init();
 }
 /*
- * Création d'une liste de tags
+ * Création d'une liste de badges
  */
-function tagListFactory(source) {
+function badgeListFactory(source) {
   //Crée la liste des tags ingrédients
-  const tagListNode = document.querySelectorAll(source + " .tag");
-  let tagList = [];
-  tagListNode.forEach((tag) => {
-    tagList.push(tag.innerText);
+  const badgeListNode = document.querySelectorAll(source + " .badge");
+  let badgeList = [];
+  badgeListNode.forEach((badge) => {
+    badgeList.push(badge.innerText);
   });
-  return tagList;
+  return badgeList;
 }
