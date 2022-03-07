@@ -37,16 +37,32 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 2rem;
+  color: #fff;
+}
+#choice li:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+#choice li {
+  margin-left: 5px;
+}
+#choice #ingredients {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 23rem;
+  list-style-type: none;
+  padding: 5px;
 }
 #choice #ingredientsList {
   margin-right: 1.5rem;
+  background-color: #3282f7;
 }
 #choice #ingredientsList .ingredientsList {
-  background-color: #3282f7;
+  background-color: transparent;
   border: none;
   border-radius: 4px;
   height: 4rem;
-  width: 9.7rem;
 }
 #choice #ingredientsList .ingredientsList::-moz-placeholder {
   text-align: center;

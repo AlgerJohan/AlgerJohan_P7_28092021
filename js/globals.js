@@ -22,7 +22,7 @@ function clearText(text) {
 function datalist(list, target) {
   let html = "";
   list.forEach((element) => {
-    html += `<option value="${element}"></option>`;
+    html += `<li value="${element}">${element}</li>`;
   });
   document.querySelector(target).innerHTML = html;
 }

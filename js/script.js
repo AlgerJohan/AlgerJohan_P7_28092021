@@ -75,8 +75,13 @@ function init() {
   });
   //Ajoute les options des dropdowns
   datalist(ingredientsList, "#ingredients");
-  datalist(appareilsList, "#appareils");
-  datalist(ustensilesList, "#ustensiles");
+  // datalist(appareilsList, "#appareils");
+  // datalist(ustensilesList, "#ustensiles");
+  document.querySelectorAll("li").forEach((element) =>
+    element.addEventListener("click", (e) => {
+      badgeFactory(".ingredientsBadges", "primaryColor", e.target.innerText);
+    })
+  );
 }
 init();
 //Écoute le changement de la valeur de la recherche
@@ -84,20 +89,24 @@ document.querySelector(".form-control").addEventListener("input", (e) => {
   init();
 });
 
-function onDropdownChange(dropdownClass, badgeTargetClass, primaryColor, successColor, dangerColor) {
+function onDropdownChange(dropdownClass, badgeTargetClass, color) {
   document.querySelector(dropdownClass).addEventListener("change", (e) => {
-    const badges = document.querySelector(badgeTargetClass);
-    const badge = document.createElement("button");
-    badge.classList.add("badge", primaryColor, successColor, dangerColor, "btn", "position-relative", "me-2");
-    badge.setAttribute("type", "button");
-    badge.innerHTML = `${e.target.value}<img src="./img/cross.svg" alt="Cross" class="ms-2"/>`;
-    badge.addEventListener("click", deleteBadge);
-    badges.appendChild(badge);
+    badgeFactory(badgeTargetClass, color, e.target.value);
     //Réinitialisation de la valeur de la recherche du dropdown
     e.target.value = "";
-    init();
   });
 }
 onDropdownChange(".ingredientsList", ".ingredientsBadges", "primaryColor");
 onDropdownChange(".appareilsList", ".appareilsBadges", "successColor");
 onDropdownChange(".ustensilesList", ".ustensilesBadges", "dangerColor");
+
+function badgeFactory(badgeTargetClass, color, value) {
+  const badges = document.querySelector(badgeTargetClass);
+  const badge = document.createElement("button");
+  badge.classList.add("badge", color, "btn", "position-relative", "me-2");
+  badge.setAttribute("type", "button");
+  badge.innerHTML = `${value}<img src="./img/cross.svg" alt="Cross" class="ms-2"/>`;
+  badge.addEventListener("click", deleteBadge);
+  badges.appendChild(badge);
+  init();
+}
