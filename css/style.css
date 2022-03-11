@@ -45,6 +45,7 @@ h1 {
 }
 #choice li {
   margin-left: 5px;
+  max-width: 32%;
 }
 #choice #ingredients {
   display: flex;
@@ -57,12 +58,12 @@ h1 {
 #choice #ingredientsList {
   margin-right: 1.5rem;
   background-color: #3282f7;
+  border-radius: 6px;
 }
 #choice #ingredientsList .ingredientsList {
   background-color: transparent;
-  border: none;
-  border-radius: 4px;
-  height: 4rem;
+  margin-top: 1.7rem;
+  position: relative;
 }
 #choice #ingredientsList .ingredientsList::-moz-placeholder {
   text-align: center;
@@ -76,15 +77,22 @@ h1 {
   text-align: center;
   color: white;
 }
+#choice #appareils {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 23rem;
+  list-style-type: none;
+  padding: 5px;
+}
 #choice #appareilsList {
   margin-right: 1.5rem;
+  background-color: #68d9a4;
+  border-radius: 6px;
 }
 #choice #appareilsList .appareilsList {
-  background-color: #68d9a4;
-  border: none;
-  border-radius: 4px;
-  height: 4rem;
-  width: 9.7rem;
+  background-color: transparent;
+  margin-top: 1.7rem;
 }
 #choice #appareilsList .appareilsList::-moz-placeholder {
   text-align: center;
@@ -98,12 +106,21 @@ h1 {
   text-align: center;
   color: white;
 }
-#choice #ustensilesList .ustensilesList {
+#choice #ustensiles {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 23rem;
+  list-style-type: none;
+  padding: 5px;
+}
+#choice #ustensilesList {
   background-color: #ed6454;
-  border: none;
-  border-radius: 4px;
-  height: 4rem;
-  width: 9.7rem;
+  border-radius: 6px;
+}
+#choice #ustensilesList .ustensilesList {
+  background-color: transparent;
+  margin-top: 1.7rem;
 }
 #choice #ustensilesList .ustensilesList::-moz-placeholder {
   text-align: center;

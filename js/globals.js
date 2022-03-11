@@ -12,6 +12,7 @@ function clearText(text) {
     .replace(/û|ü/gi, "u")
     .toLowerCase();
   return text;
+  // return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 /**
@@ -22,7 +23,7 @@ function clearText(text) {
 function datalist(list, target) {
   let html = "";
   list.forEach((element) => {
-    html += `<li value="${element}">${element}</li>`;
+    html += `<li value="${element}">${element.charAt(0).toUpperCase() + element.slice(1)}</li>`;
   });
   document.querySelector(target).innerHTML = html;
 }

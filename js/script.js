@@ -75,13 +75,22 @@ function init() {
   });
   //Ajoute les options des dropdowns
   datalist(ingredientsList, "#ingredients");
-  // datalist(appareilsList, "#appareils");
-  // datalist(ustensilesList, "#ustensiles");
-  document.querySelectorAll("li").forEach((element) =>
-    element.addEventListener("click", (e) => {
-      badgeFactory(".ingredientsBadges", "primaryColor", e.target.innerText);
-    })
-  );
+  datalist(appareilsList, "#appareils");
+  datalist(ustensilesList, "#ustensiles");
+
+  /**
+   * Fonction qui crée un écouteur d'événement pour chaque dropdown
+   */
+  function onElementClick(sourceElements, badgeTargetClass, color) {
+    document.querySelectorAll(sourceElements + " li").forEach((element) =>
+      element.addEventListener("click", (e) => {
+        badgeFactory(badgeTargetClass, color, e.target.innerText); //test
+      })
+    );
+  }
+  onElementClick("#ingredients", ".ingredientsBadges", "primaryColor");
+  onElementClick("#appareils", ".appareilsBadges", "successColor");
+  onElementClick("#ustensiles", ".ustensilesBadges", "dangerColor");
 }
 init();
 //Écoute le changement de la valeur de la recherche
@@ -89,16 +98,21 @@ document.querySelector(".form-control").addEventListener("input", (e) => {
   init();
 });
 
-function onDropdownChange(dropdownClass, badgeTargetClass, color) {
+function onDropdownChange(dropdownClass, badgeTargetClass, color, elementList) {
   document.querySelector(dropdownClass).addEventListener("change", (e) => {
     badgeFactory(badgeTargetClass, color, e.target.value);
     //Réinitialisation de la valeur de la recherche du dropdown
     e.target.value = "";
   });
 }
-onDropdownChange(".ingredientsList", ".ingredientsBadges", "primaryColor");
-onDropdownChange(".appareilsList", ".appareilsBadges", "successColor");
-onDropdownChange(".ustensilesList", ".ustensilesBadges", "dangerColor");
+document.querySelector("#ingredientsInput").addEventListener("change", (e) => {
+  elementList.filter((element) => e.target.value.includes(element));
+  console.log(elementList.filter((element) => e.target.value.includes(element)));
+});
+
+onDropdownChange(".ingredientsList", ".ingredientsBadges", "primaryColor", ingredientsList);
+onDropdownChange(".appareilsList", ".appareilsBadges", "successColor", appareilsList);
+onDropdownChange(".ustensilesList", ".ustensilesBadges", "dangerColor", ustensilesList);
 
 function badgeFactory(badgeTargetClass, color, value) {
   const badges = document.querySelector(badgeTargetClass);
@@ -110,3 +124,8 @@ function badgeFactory(badgeTargetClass, color, value) {
   badges.appendChild(badge);
   init();
 }
+// const invisibleList = document.querySelector(".ingredients");
+// invisibleList.addEventListener("click", (e) => {
+//   e.style.display = "none";
+//   console.log("cliqué");
+// });

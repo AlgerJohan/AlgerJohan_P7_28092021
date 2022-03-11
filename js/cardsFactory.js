@@ -15,9 +15,19 @@ function cardsFactory(recipesFiltred) {
   </div>
   <div class="card-text row my-3">
     <div class="col-6 ingredientRecipe">`;
-      for (let i = 0; i < 5; i++) {
-        const ingredient = recipe.ingredients[i];
-        if (ingredient) {
+      // for (let i = 0; i < 5; i++) {
+      //   const ingredient = recipe.ingredients[i];
+      //   if (ingredient) {
+      //     newCard += `<p><strong>${ingredient.ingredient}</strong>`;
+      //     if (ingredient.quantity) {
+      //       newCard += `<strong>:</strong> ${ingredient.quantity}`;
+      //       newCard += ingredient.unit ? ` ${ingredient.unit}` : "";
+      //     }
+      //     newCard += `</p>`;
+      //   }
+      // }
+      recipe.ingredients.forEach((ingredient, key) => {
+        if (key < 5) {
           newCard += `<p><strong>${ingredient.ingredient}</strong>`;
           if (ingredient.quantity) {
             newCard += `<strong>:</strong> ${ingredient.quantity}`;
@@ -25,7 +35,8 @@ function cardsFactory(recipesFiltred) {
           }
           newCard += `</p>`;
         }
-      }
+      });
+
       newCard += recipe.ingredients.length > 5 ? "<p>...</p>" : "";
       newCard += `
       </div>
@@ -41,13 +52,13 @@ function cardsFactory(recipesFiltred) {
   chercher « tarte aux pommes », « poisson », etc.
   </h2></div>`;
   }
-  cards.addEventListener("click", (e) => {
-    let person = prompt("Choisissez une recette :", "Smoothie");
-    let text;
-    if (person == null || person == "") {
-      text = "Entrez une recette.";
-    } else {
-      text = "Bonjour " + person + "! Que voulez-vous manger?";
-    }
-  });
+  // cards.addEventListener("click", (e) => {
+  //   let person = prompt("Choisissez une recette :", "Smoothie");
+  //   let text;
+  //   if (person == null || person == "") {
+  //     text = "Entrez une recette.";
+  //   } else {
+  //     text = "Bonjour " + person + "! Que voulez-vous manger?";
+  //   }
+  // });
 }
