@@ -105,10 +105,6 @@ function onDropdownChange(dropdownClass, badgeTargetClass, color, elementList) {
     e.target.value = "";
   });
 }
-document.querySelector("#ingredientsInput").addEventListener("change", (e) => {
-  elementList.filter((element) => e.target.value.includes(element));
-  console.log(elementList.filter((element) => e.target.value.includes(element)));
-});
 
 onDropdownChange(".ingredientsList", ".ingredientsBadges", "primaryColor", ingredientsList);
 onDropdownChange(".appareilsList", ".appareilsBadges", "successColor", appareilsList);
