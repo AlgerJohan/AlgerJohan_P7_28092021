@@ -5,7 +5,7 @@ function cardsFactory(recipesFiltred) {
   if (recipesFiltred.length > 0) {
     recipesFiltred.forEach((recipe) => {
       let newCard = `
- <div class="card col-4 p-3 border-0">
+ <div class="card col-4 p-3 border-0 onclick = console.log(${recipe.name})">
  <img src="./img/fotomelia-free-images-download-public-domain-8.jpg" class="card-img-top" alt="" />
  <div class="card-body backgroundColor">
   <div class="d-flex justify-content-between">
@@ -52,13 +52,4 @@ function cardsFactory(recipesFiltred) {
   chercher « tarte aux pommes », « poisson », etc.
   </h2></div>`;
   }
-  // cards.addEventListener("click", (e) => {
-  //   let person = prompt("Choisissez une recette :", "Smoothie");
-  //   let text;
-  //   if (person == null || person == "") {
-  //     text = "Entrez une recette.";
-  //   } else {
-  //     text = "Bonjour " + person + "! Que voulez-vous manger?";
-  //   }
-  // });
 }

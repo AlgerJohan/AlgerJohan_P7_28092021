@@ -4,9 +4,9 @@ let appareilsList = [];
 let ustensilesList = [];
 
 function init() {
+  //Filtre des recettes dans l'onglet recherche
   let searchText = document.querySelector(".form-control").value;
   searchText = searchText.length > 2 ? searchText : "";
-  //Filtre des recettes dans l'onglet recherche
   let recipesFiltred = "";
   if (searchText) {
     recipesFiltred = recipes.filter((recipe) => {
@@ -57,34 +57,36 @@ function init() {
   //Création des listes des dropdowns avec les recettes filtrées
   recipesFiltred.forEach((recipe) => {
     recipe.ingredients.forEach((ingredient) => {
-      const ingredientName = clearText(ingredient.ingredient);
+      const ingredientName = ingredient.ingredient;
       ingredientsList.includes(ingredientName) || badgeIngredientList.includes(ingredientName)
         ? null
         : ingredientsList.push(ingredientName);
     });
-    const appareilName = clearText(recipe.appliance);
+
+    const appareilName = recipe.appliance;
     appareilsList.includes(appareilName) || badgeAppareilsList.includes(appareilName)
       ? null
       : appareilsList.push(appareilName);
+
     recipe.ustensils.forEach((ustensil) => {
-      const ustensilName = clearText(ustensil);
+      const ustensilName = ustensil;
       ustensilesList.includes(ustensilName) || badgeUstensilesList.includes(ustensilName)
         ? null
         : ustensilesList.push(ustensilName);
     });
   });
-  //Ajoute les options des dropdowns
-  datalist(ingredientsList, "#ingredients");
-  datalist(appareilsList, "#appareils");
-  datalist(ustensilesList, "#ustensiles");
 
+  //Ajoute les options des dropdowns
+  datalist(ingredientsList, "#ingredients", ".ingredientsList");
+  datalist(appareilsList, "#appareils", ".appareilsList");
+  datalist(ustensilesList, "#ustensiles", ".ustensilesList");
   /**
    * Fonction qui crée un écouteur d'événement pour chaque dropdown
    */
   function onElementClick(sourceElements, badgeTargetClass, color) {
     document.querySelectorAll(sourceElements + " li").forEach((element) =>
       element.addEventListener("click", (e) => {
-        badgeFactory(badgeTargetClass, color, e.target.innerText); //test
+        badgeFactory(badgeTargetClass, color, e.target.innerText, e.target.attributes["value"].value);
       })
     );
   }
@@ -98,28 +100,38 @@ document.querySelector(".form-control").addEventListener("input", (e) => {
   init();
 });
 
-function onDropdownChange(dropdownClass, badgeTargetClass, color, elementList) {
+function onDropdownChange(dropdownClass, badgeTargetClass, color) {
   document.querySelector(dropdownClass).addEventListener("change", (e) => {
-    badgeFactory(badgeTargetClass, color, e.target.value);
+    badgeFactory(badgeTargetClass, color, e.target.value, e.target.value);
     //Réinitialisation de la valeur de la recherche du dropdown
     e.target.value = "";
   });
 }
-
-onDropdownChange(".ingredientsList", ".ingredientsBadges", "primaryColor", ingredientsList);
-onDropdownChange(".appareilsList", ".appareilsBadges", "successColor", appareilsList);
-onDropdownChange(".ustensilesList", ".ustensilesBadges", "dangerColor", ustensilesList);
-
-function badgeFactory(badgeTargetClass, color, value) {
-  const badges = document.querySelector(badgeTargetClass);
-  const badge = document.createElement("button");
-  badge.classList.add("badge", color, "btn", "position-relative", "me-2");
-  badge.setAttribute("type", "button");
-  badge.innerHTML = `${value}<img src="./img/cross.svg" alt="Cross" class="ms-2"/>`;
-  badge.addEventListener("click", deleteBadge);
-  badges.appendChild(badge);
+document.querySelector(".ingredientsList").addEventListener("input", (e) => {
   init();
-}
+});
+document.querySelector(".appareilsList").addEventListener("input", (e) => {
+  init();
+});
+document.querySelector(".ustensilesList").addEventListener("input", (e) => {
+  init();
+});
+// document.querySelectorAll(".card").forEach((card) => {
+//   card.addEventListener("click", (e) => {
+//     console.log(e);
+//     // let person = prompt("Choisissez une recette :", "e.target");
+//     // let text;
+//     // if (person == null || person == "") {
+//     //   text = "Entrez une recette.";
+//     // } else {
+//     //   text = "Bonjour " + person + "! Que voulez-vous manger?";
+//     // }
+//   });
+// });
+// onDropdownChange(".ingredientsList", ".ingredientsBadges", "primaryColor");
+// onDropdownChange(".appareilsList", ".appareilsBadges", "successColor");
+// onDropdownChange(".ustensilesList", ".ustensilesBadges", "dangerColor");
+
 // const invisibleList = document.querySelector(".ingredients");
 // invisibleList.addEventListener("click", (e) => {
 //   e.style.display = "none";

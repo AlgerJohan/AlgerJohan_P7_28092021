@@ -20,10 +20,17 @@ function clearText(text) {
  * @param {array} list Tableau de valeurs
  * @param {string} target ID de l'élément HTML qui contient la liste
  */
-function datalist(list, target) {
+function datalist(list, target, inputClass) {
+  //Filtres inputDropdown
+  const text = document.querySelector(inputClass).value;
+  if (text.length > 0) {
+    list = list.filter((ingredient) => {
+      return clearText(ingredient).includes(clearText(text));
+    });
+  }
   let html = "";
   list.forEach((element) => {
-    html += `<li value="${element}">${element}</li>`;
+    html += `<li value="${element}">${element.charAt(0).toUpperCase() + element.slice(1)}</li>`;
   });
   document.querySelector(target).innerHTML = html;
 }
@@ -40,7 +47,18 @@ function badgeListFactory(source) {
   const badgeListNode = document.querySelectorAll(source + " .badge");
   let badgeList = [];
   badgeListNode.forEach((badge) => {
-    badgeList.push(badge.innerText);
+    badgeList.push(badge.attributes["data"].value);
   });
   return badgeList;
+}
+function badgeFactory(badgeTargetClass, color, value, originValue) {
+  const badges = document.querySelector(badgeTargetClass);
+  const badge = document.createElement("button");
+  badge.classList.add("badge", color, "btn", "position-relative", "me-2");
+  badge.setAttribute("type", "button");
+  badge.setAttribute("data", originValue);
+  badge.innerHTML = `${value}<img src="./img/cross.svg" alt="Cross" class="ms-2"/>`;
+  badge.addEventListener("click", deleteBadge);
+  badges.appendChild(badge);
+  init();
 }
