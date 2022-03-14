@@ -1,3 +1,7 @@
+/**
+ * It creates the cards for the recipes.
+ * @param recipesFiltred - an array of recipes that match the user's criteria
+ */
 function cardsFactory(recipesFiltred) {
   const cards = document.querySelector(".cards");
   //pour chaque recette tu vas faire la fonction qui suit

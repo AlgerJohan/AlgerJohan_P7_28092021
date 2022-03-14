@@ -1,8 +1,12 @@
 //Création d'une liste vide pour les dropdowns
+/* Creating a list of empty variables. */
 let ingredientsList = [];
 let appareilsList = [];
 let ustensilesList = [];
 
+/**
+ * It creates a listener for each dropdown.
+ */
 function init() {
   //Filtre des recettes dans l'onglet recherche
   let searchText = document.querySelector(".form-control").value;
@@ -55,6 +59,7 @@ function init() {
   appareilsList = [];
   ustensilesList = [];
   //Création des listes des dropdowns avec les recettes filtrées
+  /* A loop that iterates over each recipe in the list of recipes. */
   recipesFiltred.forEach((recipe) => {
     recipe.ingredients.forEach((ingredient) => {
       const ingredientName = ingredient.ingredient;
@@ -77,11 +82,20 @@ function init() {
   });
 
   //Ajoute les options des dropdowns
+  /* It creates a listener for each dropdown. */
   datalist(ingredientsList, "#ingredients", ".ingredientsList");
   datalist(appareilsList, "#appareils", ".appareilsList");
   datalist(ustensilesList, "#ustensiles", ".ustensilesList");
   /**
    * Fonction qui crée un écouteur d'événement pour chaque dropdown
+   */
+  /**
+   * * For each element in the list, add an event listener to the element that will call the
+   * `badgeFactory` function
+   * @param sourceElements - The element that contains the list of elements that will be used to generate
+   * the badges.
+   * @param badgeTargetClass - The class of the element that will be the target of the badge.
+   * @param color - The color of the badge.
    */
   function onElementClick(sourceElements, badgeTargetClass, color) {
     document.querySelectorAll(sourceElements + " li").forEach((element) =>
@@ -128,9 +142,6 @@ document.querySelector(".ustensilesList").addEventListener("input", (e) => {
 //     // }
 //   });
 // });
-// onDropdownChange(".ingredientsList", ".ingredientsBadges", "primaryColor");
-// onDropdownChange(".appareilsList", ".appareilsBadges", "successColor");
-// onDropdownChange(".ustensilesList", ".ustensilesBadges", "dangerColor");
 
 // const invisibleList = document.querySelector(".ingredients");
 // invisibleList.addEventListener("click", (e) => {

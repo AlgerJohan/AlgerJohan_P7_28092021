@@ -3,6 +3,12 @@
  * @param {string} text Texte à nettoyer
  * @returns Texte nettoyé
  */
+/**
+ * Replace special characters in a string with their English equivalents, and then convert the entire
+ * string to lowercase
+ * @param text - The text to be cleaned.
+ * @returns The text is being returned in lowercase and without any special characters.
+ */
 function clearText(text) {
   text = text
     .replace(/é|è|ê|ë/gi, "e")
@@ -12,13 +18,19 @@ function clearText(text) {
     .replace(/û|ü/gi, "u")
     .toLowerCase();
   return text;
-  // return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 /**
  * Ajoute des options dans un datalist d'un dropdown
  * @param {array} list Tableau de valeurs
  * @param {string} target ID de l'élément HTML qui contient la liste
+ */
+/**
+ * The function takes a list of ingredients and a target element, and creates a list of ingredients
+ * that match the search term
+ * @param list - the list of ingredients to be filtered
+ * @param target - The HTML element that will be updated with the new list.
+ * @param inputClass - The class of the input element.
  */
 function datalist(list, target, inputClass) {
   //Filtres inputDropdown
@@ -35,12 +47,20 @@ function datalist(list, target, inputClass) {
   document.querySelector(target).innerHTML = html;
 }
 
+/**
+ * Delete the badge from the DOM and re-initialize the badge
+ */
 function deleteBadge() {
   this.remove();
   init();
 }
 /*
  * Création d'une liste de badges
+ */
+/**
+ * Create a list of all the tags in the source
+ * @param source - The CSS selector for the element that contains the badges.
+ * @returns The list of tags.
  */
 function badgeListFactory(source) {
   //Crée la liste des tags ingrédients
@@ -51,6 +71,13 @@ function badgeListFactory(source) {
   });
   return badgeList;
 }
+/**
+ * Create a badge with a value and a cross icon
+ * @param badgeTargetClass - The class of the element where the badge will be appended.
+ * @param color - The color of the badge.
+ * @param value - The value of the badge.
+ * @param originValue - The value of the badge that will be deleted.
+ */
 function badgeFactory(badgeTargetClass, color, value, originValue) {
   const badges = document.querySelector(badgeTargetClass);
   const badge = document.createElement("button");
