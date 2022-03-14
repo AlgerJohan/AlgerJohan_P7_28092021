@@ -5,7 +5,7 @@ function cardsFactory(recipesFiltred) {
   if (recipesFiltred.length > 0) {
     recipesFiltred.forEach((recipe) => {
       let newCard = `
- <div class="card col-4 p-3 border-0 onclick = console.log(${recipe.name})">
+ <div class="card col-4 p-3 border-0">
  <img src="./img/fotomelia-free-images-download-public-domain-8.jpg" class="card-img-top" alt="" />
  <div class="card-body backgroundColor">
   <div class="d-flex justify-content-between">
