@@ -35,12 +35,20 @@ function datalist(list, target, inputClass) {
   document.querySelector(target).innerHTML = html;
 }
 
+/**
+ * Delete the badge from the DOM and re-initialize the badge
+ */
 function deleteBadge() {
   this.remove();
   init();
 }
 /*
  * Création d'une liste de badges
+ */
+/**
+ * Create a list of all the tags in the HTML document
+ * @param source - The CSS selector for the element that contains the badges.
+ * @returns The list of tags.
  */
 function badgeListFactory(source) {
   //Crée la liste des tags ingrédients
@@ -51,6 +59,13 @@ function badgeListFactory(source) {
   });
   return badgeList;
 }
+/**
+ * Create a badge element with a class of "badge", a color, a value, and an origin value
+ * @param badgeTargetClass - The class of the element where the badge will be appended.
+ * @param color - The color of the badge.
+ * @param value - The value of the badge.
+ * @param originValue - The value of the badge that will be deleted.
+ */
 function badgeFactory(badgeTargetClass, color, value, originValue) {
   const badges = document.querySelector(badgeTargetClass);
   const badge = document.createElement("button");

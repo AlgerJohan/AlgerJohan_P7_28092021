@@ -1,8 +1,12 @@
 //Création d'une liste vide pour les dropdowns
+/* Creating a list of empty variables. */
 let ingredientsList = [];
 let appareilsList = [];
 let ustensilesList = [];
 
+/**
+ * It creates a listener for each dropdown.
+ */
 function init() {
   //Filtre des recettes dans l'onglet recherche
   let searchText = document.querySelector(".form-control").value;
@@ -83,6 +87,15 @@ function init() {
   /**
    * Fonction qui crée un écouteur d'événement pour chaque dropdown
    */
+  /**
+   * *This function takes in a list of elements, a target class, and a color, and adds a click event to
+   * each element in the list.
+   * It then uses the click event to call the badgeFactory function.*
+   * @param sourceElements - The element that contains the list of elements that will be used to generate
+   * the badges.
+   * @param badgeTargetClass - The CSS class of the element that will be the badge.
+   * @param color - The color of the badge.
+   */
   function onElementClick(sourceElements, badgeTargetClass, color) {
     document.querySelectorAll(sourceElements + " li").forEach((element) =>
       element.addEventListener("click", (e) => {
@@ -100,6 +113,12 @@ document.querySelector(".form-control").addEventListener("input", (e) => {
   init();
 });
 
+/**
+ * It creates a dropdown menu and binds it to a badge.
+ * @param dropdownClass - The class of the dropdown element.
+ * @param badgeTargetClass - The class of the element that will be updated with the new badge.
+ * @param color - The color of the badge.
+ */
 function onDropdownChange(dropdownClass, badgeTargetClass, color) {
   document.querySelector(dropdownClass).addEventListener("change", (e) => {
     badgeFactory(badgeTargetClass, color, e.target.value, e.target.value);
@@ -128,9 +147,6 @@ document.querySelector(".ustensilesList").addEventListener("input", (e) => {
 //     // }
 //   });
 // });
-// onDropdownChange(".ingredientsList", ".ingredientsBadges", "primaryColor");
-// onDropdownChange(".appareilsList", ".appareilsBadges", "successColor");
-// onDropdownChange(".ustensilesList", ".ustensilesBadges", "dangerColor");
 
 // const invisibleList = document.querySelector(".ingredients");
 // invisibleList.addEventListener("click", (e) => {

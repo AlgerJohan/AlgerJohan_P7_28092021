@@ -1,6 +1,10 @@
+/**
+ * It creates the cards for the recipes.
+ * @param recipesFiltred - the array of recipes that match the user's criteria
+ */
 function cardsFactory(recipesFiltred) {
   const cards = document.querySelector(".cards");
-  //pour chaque recette tu vas faire la fonction qui suit
+  //Pour chaque recette faire la fonction qui suit
   let allCards = ""; // allCards = allHtml et newCard = newHtml
   if (recipesFiltred.length > 0) {
     recipesFiltred.forEach((recipe) => {
@@ -16,6 +20,7 @@ function cardsFactory(recipesFiltred) {
   <div class="card-text row my-3">
     <div class="col-6 ingredientRecipe">`;
 
+      /* A loop that iterates over the ingredients of the recipe. It is used to display only 5 ingredients. */
       recipe.ingredients.forEach((ingredient, key) => {
         if (key < 5) {
           newCard += `<p><strong>${ingredient.ingredient}</strong>`;
