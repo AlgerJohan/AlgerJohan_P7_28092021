@@ -15,19 +15,9 @@ function cardsFactory(recipesFiltred) {
   </div>
   <div class="card-text row my-3">
     <div class="col-6 ingredientRecipe">`;
-      // for (let i = 0; i < 5; i++) {
-      //   const ingredient = recipe.ingredients[i];
-      //   if (ingredient) {
-      //     newCard += `<p><strong>${ingredient.ingredient}</strong>`;
-      //     if (ingredient.quantity) {
-      //       newCard += `<strong>:</strong> ${ingredient.quantity}`;
-      //       newCard += ingredient.unit ? ` ${ingredient.unit}` : "";
-      //     }
-      //     newCard += `</p>`;
-      //   }
-      // }
-      recipe.ingredients.forEach((ingredient, key) => {
-        if (key < 5) {
+      for (let i = 0; i < 5; i++) {
+        const ingredient = recipe.ingredients[i];
+        if (ingredient) {
           newCard += `<p><strong>${ingredient.ingredient}</strong>`;
           if (ingredient.quantity) {
             newCard += `<strong>:</strong> ${ingredient.quantity}`;
@@ -35,8 +25,7 @@ function cardsFactory(recipesFiltred) {
           }
           newCard += `</p>`;
         }
-      });
-
+      }
       newCard += recipe.ingredients.length > 5 ? "<p>...</p>" : "";
       newCard += `
       </div>
