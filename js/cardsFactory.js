@@ -1,13 +1,14 @@
 /**
  * It creates the cards for the recipes.
- * @param recipesFiltred - an array of recipes that match the user's criteria
+ * @param recipesFiltred - the recipes that match the user's criteria
  */
+
 function cardsFactory(recipesFiltred) {
   const cards = document.querySelector(".cards");
-  //pour chaque recette tu vas faire la fonction qui suit
+  //pour chaque recette faire la fonction qui suit
   let allCards = ""; // allCards = allHtml et newCard = newHtml
   if (recipesFiltred.length > 0) {
-    recipesFiltred.forEach((recipe) => {
+    for (const recipe of recipesFiltred) {
       let newCard = `
  <div class="card col-4 p-3 border-0">
  <img src="./img/fotomelia-free-images-download-public-domain-8.jpg" class="card-img-top" alt="" />
@@ -19,6 +20,7 @@ function cardsFactory(recipesFiltred) {
   </div>
   <div class="card-text row my-3">
     <div class="col-6 ingredientRecipe">`;
+      /* A loop that iterates over the ingredients of the recipe. */
       for (let i = 0; i < 5; i++) {
         const ingredient = recipe.ingredients[i];
         if (ingredient) {
@@ -38,7 +40,7 @@ function cardsFactory(recipesFiltred) {
     </div>
 </div>`;
       allCards += newCard;
-    });
+    }
     cards.innerHTML = allCards;
   } else {
     cards.innerHTML = `<div class="col-12 text-center"><h2>Aucune recette ne correspond à votre critère… vous pouvez

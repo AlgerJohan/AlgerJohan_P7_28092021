@@ -41,9 +41,9 @@ function datalist(list, target, inputClass) {
     });
   }
   let html = "";
-  list.forEach((element) => {
-    html += `<li value="${element}">${element.charAt(0).toUpperCase() + element.slice(1)}</li>`;
-  });
+  for (const element of list) {
+    html += `<li class="recipe" value="${element}">${element.charAt(0).toUpperCase() + element.slice(1)}</li>`;
+  }
   document.querySelector(target).innerHTML = html;
 }
 
@@ -54,9 +54,7 @@ function deleteBadge() {
   this.remove();
   init();
 }
-/*
- * Création d'une liste de badges
- */
+
 /**
  * Create a list of all the tags in the source
  * @param source - The CSS selector for the element that contains the badges.
@@ -66,11 +64,12 @@ function badgeListFactory(source) {
   //Crée la liste des tags ingrédients
   const badgeListNode = document.querySelectorAll(source + " .badge");
   let badgeList = [];
-  badgeListNode.forEach((badge) => {
+  for (const badge of badgeListNode) {
     badgeList.push(badge.attributes["data"].value);
-  });
+  }
   return badgeList;
 }
+
 /**
  * Create a badge with a value and a cross icon
  * @param badgeTargetClass - The class of the element where the badge will be appended.
