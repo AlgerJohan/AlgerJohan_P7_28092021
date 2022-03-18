@@ -29,10 +29,7 @@ h1 {
   color: #fff;
 }
 
-#choice {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
+#dropdownGroup {
   color: #fff;
   li:hover {
     cursor: pointer;
@@ -49,16 +46,21 @@ h1 {
     max-height: 23rem;
     list-style-type: none;
     padding: 5px;
+    overflow: hidden;
   }
 
   #ingredientsList {
-    margin-right: 1.5rem;
     background-color: $primaryColor;
     border-radius: 6px;
-
+    width: 49rem;
+    .dropdownParent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1.4rem;
+    }
     .ingredientsList {
       background-color: transparent;
-      margin-top: 1.7rem;
       position: relative;
     }
     .ingredientsList::placeholder {
@@ -73,6 +75,7 @@ h1 {
     max-height: 23rem;
     list-style-type: none;
     padding: 5px;
+    overflow: hidden;
   }
   #appareilsList {
     margin-right: 1.5rem;
@@ -95,6 +98,7 @@ h1 {
     max-height: 23rem;
     list-style-type: none;
     padding: 5px;
+    overflow: hidden;
   }
   #ustensilesList {
     background-color: $dangerColor;

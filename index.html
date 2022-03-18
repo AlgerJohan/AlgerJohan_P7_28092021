@@ -33,12 +33,17 @@
       </div>
 
       <!-- RECIPES -->
-      <div id="choice" class="row">
+      <div id="dropdownGroup" class="row">
         <div id="ingredientsList" class="col-auto m-lg-3">
-          <input type="text" class="ingredientsList border-0" placeholder="Ingredients" />
-          <!-- <img class="dropdownIngredients" src="/img/dropdown-list.svg" alt="dropdown-list" /> -->
-          <ul id="ingredients"></ul>
+          <div class="dropdownParent">
+            <input type="text" class="ingredientsList border-0" placeholder="Rechercher un ingrédient" />
+            <img class="dropdownAppareils" src="/img/dropdown-list.svg" alt="dropdown-list" />
+          </div>
+          <div class="container-tag-options">
+            <ul id="ingredients"></ul>
+          </div>
         </div>
+
         <div id="appareilsList" class="col-auto m-lg-3">
           <input type="text" class="appareilsList border-0" placeholder="Appareils" />
           <ul id="appareils"></ul>

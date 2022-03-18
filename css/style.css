@@ -33,104 +33,109 @@ h1 {
   color: #fff;
 }
 
-#choice {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
+#dropdownGroup {
   color: #fff;
 }
-#choice li:hover {
+#dropdownGroup li:hover {
   cursor: pointer;
   font-weight: bold;
 }
-#choice li {
+#dropdownGroup li {
   margin-left: 5px;
   max-width: 32%;
 }
-#choice #ingredients {
+#dropdownGroup #ingredients {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   max-height: 23rem;
   list-style-type: none;
   padding: 5px;
+  overflow: hidden;
 }
-#choice #ingredientsList {
-  margin-right: 1.5rem;
+#dropdownGroup #ingredientsList {
   background-color: #3282f7;
   border-radius: 6px;
+  width: 49rem;
 }
-#choice #ingredientsList .ingredientsList {
+#dropdownGroup #ingredientsList .dropdownParent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.4rem;
+}
+#dropdownGroup #ingredientsList .ingredientsList {
   background-color: transparent;
-  margin-top: 1.7rem;
   position: relative;
 }
-#choice #ingredientsList .ingredientsList::-moz-placeholder {
+#dropdownGroup #ingredientsList .ingredientsList::-moz-placeholder {
   text-align: center;
   color: white;
 }
-#choice #ingredientsList .ingredientsList:-ms-input-placeholder {
+#dropdownGroup #ingredientsList .ingredientsList:-ms-input-placeholder {
   text-align: center;
   color: white;
 }
-#choice #ingredientsList .ingredientsList::placeholder {
+#dropdownGroup #ingredientsList .ingredientsList::placeholder {
   text-align: center;
   color: white;
 }
-#choice #appareils {
+#dropdownGroup #appareils {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   max-height: 23rem;
   list-style-type: none;
   padding: 5px;
+  overflow: hidden;
 }
-#choice #appareilsList {
+#dropdownGroup #appareilsList {
   margin-right: 1.5rem;
   background-color: #68d9a4;
   border-radius: 6px;
 }
-#choice #appareilsList .appareilsList {
+#dropdownGroup #appareilsList .appareilsList {
   background-color: transparent;
   margin-top: 1.7rem;
 }
-#choice #appareilsList .appareilsList::-moz-placeholder {
+#dropdownGroup #appareilsList .appareilsList::-moz-placeholder {
   text-align: center;
   color: white;
 }
-#choice #appareilsList .appareilsList:-ms-input-placeholder {
+#dropdownGroup #appareilsList .appareilsList:-ms-input-placeholder {
   text-align: center;
   color: white;
 }
-#choice #appareilsList .appareilsList::placeholder {
+#dropdownGroup #appareilsList .appareilsList::placeholder {
   text-align: center;
   color: white;
 }
-#choice #ustensiles {
+#dropdownGroup #ustensiles {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   max-height: 23rem;
   list-style-type: none;
   padding: 5px;
+  overflow: hidden;
 }
-#choice #ustensilesList {
+#dropdownGroup #ustensilesList {
   background-color: #ed6454;
   border-radius: 6px;
 }
-#choice #ustensilesList .ustensilesList {
+#dropdownGroup #ustensilesList .ustensilesList {
   background-color: transparent;
   margin-top: 1.7rem;
 }
-#choice #ustensilesList .ustensilesList::-moz-placeholder {
+#dropdownGroup #ustensilesList .ustensilesList::-moz-placeholder {
   text-align: center;
   color: white;
 }
-#choice #ustensilesList .ustensilesList:-ms-input-placeholder {
+#dropdownGroup #ustensilesList .ustensilesList:-ms-input-placeholder {
   text-align: center;
   color: white;
 }
-#choice #ustensilesList .ustensilesList::placeholder {
+#dropdownGroup #ustensilesList .ustensilesList::placeholder {
   text-align: center;
   color: white;
 }
