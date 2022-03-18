@@ -35,12 +35,18 @@
       <!-- RECIPES -->
       <div id="dropdownGroup" class="row">
         <div id="ingredientsList" class="col-auto m-lg-3">
-          <div class="dropdownParent">
-            <input type="text" class="ingredientsList border-0" placeholder="Rechercher un ingrédient" />
-            <img class="dropdownAppareils" src="/img/dropdown-list.svg" alt="dropdown-list" />
-          </div>
-          <div class="container-tag-options">
-            <ul id="ingredients"></ul>
+          <button id="ingredients-tag-btn" class="btn btn-primary btn-lg mx-2 tag-btn show" type="button">
+            Ingrédients
+            <img src="/img/Dropdown.svg" alt="dropdown" />
+          </button>
+          <div class="opened-btn-container bg-primary">
+            <div class="dropdownParent">
+              <input type="text" class="ingredientsList border-0" placeholder="Rechercher un ingrédient" />
+              <img class="dropdownAppareils" src="/img/dropdown-list.svg" alt="dropdown-list" />
+            </div>
+            <div class="container-tag-options">
+              <ul id="ingredients"></ul>
+            </div>
           </div>
         </div>
 
