@@ -15,7 +15,7 @@ function init() {
 
   let recipesFiltred = [];
   if (searchText) {
-    for (const recipe of recipes) {
+    for (const recipe of recipesFiltred) {
       if (
         clearText(recipe.name).includes(clearText(searchText)) ||
         recipe.ingredients.some((ingredient) => clearText(ingredient.ingredient).includes(clearText(searchText))) ||
@@ -27,16 +27,6 @@ function init() {
   } else {
     recipesFiltred = recipes;
   }
-  //   recipesFiltred = recipes.filter((recipe) => {
-  //     return (
-  //       clearText(recipe.name).includes(clearText(searchText)) ||
-  //       recipe.ingredients.some((ingredient) => clearText(ingredient.ingredient).includes(clearText(searchText))) ||
-  //       recipe.description.includes(clearText(searchText))
-  //     );
-  //   });
-  // } else {
-  //   recipesFiltred = recipes;
-  // }
 
   //Filtres des recettes par ingrédients (dropdown)
   const badgeIngredientList = badgeListFactory(".ingredientsBadges");
