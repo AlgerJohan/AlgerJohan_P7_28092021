@@ -11,18 +11,32 @@ function init() {
   //Filtre des recettes dans l'onglet recherche
   let searchText = document.querySelector(".form-control").value;
   searchText = searchText.length > 2 ? searchText : "";
-  let recipesFiltred = "";
+  // let recipesFiltred = "";
+
+  let recipesFiltred = [];
   if (searchText) {
-    recipesFiltred = recipes.filter((recipe) => {
-      return (
+    for (const recipe of recipes) {
+      if (
         clearText(recipe.name).includes(clearText(searchText)) ||
         recipe.ingredients.some((ingredient) => clearText(ingredient.ingredient).includes(clearText(searchText))) ||
         recipe.description.includes(clearText(searchText))
-      );
-    });
+      ) {
+        recipesFiltred.push(recipe);
+      }
+    }
   } else {
     recipesFiltred = recipes;
   }
+  //   recipesFiltred = recipes.filter((recipe) => {
+  //     return (
+  //       clearText(recipe.name).includes(clearText(searchText)) ||
+  //       recipe.ingredients.some((ingredient) => clearText(ingredient.ingredient).includes(clearText(searchText))) ||
+  //       recipe.description.includes(clearText(searchText))
+  //     );
+  //   });
+  // } else {
+  //   recipesFiltred = recipes;
+  // }
 
   //Filtres des recettes par ingrédients (dropdown)
   const badgeIngredientList = badgeListFactory(".ingredientsBadges");
