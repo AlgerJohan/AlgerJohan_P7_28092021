@@ -10,6 +10,12 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Raleway:ital,wght@1,600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Les Petits Plats</title>
   </head>
@@ -35,15 +41,17 @@
       <!-- RECIPES -->
       <div id="dropdownGroup" class="row">
         <div id="ingredientsList" class="col-auto m-lg-3">
-          <button id="ingredients-tag-btn" class="btn btn-primary btn-lg mx-2 tag-btn show" type="button">
+          <button id="ingredients-tag-btn" class="btn btn-lg mx-2 tag-btn show" type="button">
             Ingrédients
-            <img src="/img/Dropdown.svg" alt="dropdown" />
+            <img class="dropdownDownIngredients" src="/img/Dropdown.svg" alt="dropdown" />
           </button>
-          <div class="opened-btn-container bg-primary">
+
+          <div class="opened-btn-ingredients">
             <div class="dropdownParent">
-              <input type="text" class="ingredientsList border-0" placeholder="Rechercher un ingrédient" />
-              <img class="dropdownAppareils" src="/img/dropdown-list.svg" alt="dropdown-list" />
+              <input type="text" class="ingredientsList" placeholder="Rechercher un ingrédient" />
+              <img class="dropdownUpIngredients" src="/img/dropdown-list.svg" alt="dropdown-list" />
             </div>
+
             <div class="container-tag-options">
               <ul id="ingredients"></ul>
             </div>
@@ -51,16 +59,38 @@
         </div>
 
         <div id="appareilsList" class="col-auto m-lg-3">
-          <input type="text" class="appareilsList border-0" placeholder="Appareils" />
-          <ul id="appareils"></ul>
-          <!-- <img class="dropdownAppareils" src="/img/dropdown-list.svg" alt="dropdown-list" /> -->
+          <button id="appareils-tag-btn" class="btn btn-lg mx-2 tag-btn show" type="button">
+            Appareils
+            <img class="dropdownDownAppareils" src="/img/Dropdown.svg" alt="dropdown" />
+          </button>
+          <div class="opened-btn-appareils">
+            <div class="dropdownParent">
+              <input type="text" class="appareilsList border-0" placeholder="Rechercher un appareil" />
+              <img class="dropdownUpAppareils" src="/img/dropdown-list.svg" alt="dropdown-list" />
+            </div>
+
+            <div class="container-tag-options">
+              <ul id="appareils"></ul>
+            </div>
+          </div>
         </div>
+
         <div id="ustensilesList" class="col-auto m-lg-3">
-          <input type="text" class="ustensilesList border-0" placeholder="Ustensiles" />
-          <ul id="ustensiles"></ul>
-          <!-- <img class="dropdownUstensiles" src="/img/dropdown-list.svg" alt="dropdown-list" /> -->
-        </div>
+          <button id="ustensiles-tag-btn" class="btn btn-lg mx-2 tag-btn show" type="button">
+            Ustensiles
+            <img class="dropdownDownUstensiles" src="/img/Dropdown.svg" alt="dropdown" />
+          </button>
+          <div class="opened-btn-ustensiles">
+            <div class="dropdownParent">
+              <input type="text" class="ustensilesList border-0" placeholder="Rechercher un ustensile" />
+              <img class="dropdownUpUstensiles" src="/img/dropdown-list.svg" alt="dropdown-list" />
+            </div>
+          <div class="container-tag-options">
+            <ul id="ustensiles"></ul>
+          </div>
+         </div>
       </div>
+
       <!-- CARD -->
       <div class="d-flex row cards">
         <div class="page card col-4 mb-5" aria-hidden="true">

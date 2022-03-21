@@ -135,6 +135,69 @@ document.querySelector(".appareilsList").addEventListener("input", (e) => {
 document.querySelector(".ustensilesList").addEventListener("input", (e) => {
   init();
 });
+const dropdownDownIngredients = document.querySelector(".dropdownDownIngredients");
+const dropdownUpIngredients = document.querySelector(".dropdownUpIngredients");
+const ingredientsTagBtn = document.getElementById("ingredients-tag-btn");
+const openedBtningredients = document.querySelector(".opened-btn-ingredients");
+
+const dropdownDownAppareils = document.querySelector(".dropdownDownAppareils");
+const dropdownUpAppareils = document.querySelector(".dropdownUpAppareils");
+const appareilsTagBtn = document.getElementById("appareils-tag-btn");
+const openedBtnAppareils = document.querySelector(".opened-btn-appareils");
+
+const dropdownDownUstensiles = document.querySelector(".dropdownDownUstensiles");
+const dropdownUpUstensiles = document.querySelector(".dropdownUpUstensiles");
+const ustensilesTagBtn = document.getElementById("ustensiles-tag-btn");
+const openedBtnUstensiles = document.querySelector(".opened-btn-ustensiles");
+
+//Fonction qui ouvre et ferme le dropdown des ingrédients
+function launchDropdownIngredients() {
+  openedBtningredients.style.display = "block";
+  ingredientsTagBtn.style.display = "none";
+}
+dropdownDownIngredients.addEventListener("click", (e) => {
+  launchDropdownIngredients();
+});
+function upDropDownIngredients() {
+  openedBtningredients.style.display = "none";
+  ingredientsTagBtn.style.display = "block";
+}
+dropdownUpIngredients.addEventListener("click", (e) => {
+  upDropDownIngredients();
+});
+
+//Fonction qui ouvre et ferme le dropdown des appareils
+function launchDropdownAppareils() {
+  openedBtnAppareils.style.display = "block";
+  appareilsTagBtn.style.display = "none";
+}
+dropdownDownAppareils.addEventListener("click", (e) => {
+  launchDropdownAppareils();
+  console.log("click");
+});
+function upDropDownAppareils() {
+  openedBtnAppareils.style.display = "none";
+  appareilsTagBtn.style.display = "block";
+}
+dropdownUpAppareils.addEventListener("click", (e) => {
+  upDropDownAppareils();
+});
+
+//Fonction qui ouvre et ferme le dropdown des ustensiles
+function launchDropdownUstensiles() {
+  openedBtnUstensiles.style.display = "block";
+  ustensilesTagBtn.style.display = "none";
+}
+dropdownDownUstensiles.addEventListener("click", (e) => {
+  launchDropdownUstensiles();
+});
+function upDropDownUstensiles() {
+  openedBtnUstensiles.style.display = "none";
+  ustensilesTagBtn.style.display = "block";
+}
+dropdownUpUstensiles.addEventListener("click", (e) => {
+  upDropDownUstensiles();
+});
 // document.querySelectorAll(".card").forEach((card) => {
 //   card.addEventListener("click", (e) => {
 //     console.log(e);
@@ -146,10 +209,4 @@ document.querySelector(".ustensilesList").addEventListener("input", (e) => {
 //     //   text = "Bonjour " + person + "! Que voulez-vous manger?";
 //     // }
 //   });
-// });
-
-// const invisibleList = document.querySelector(".ingredients");
-// invisibleList.addEventListener("click", (e) => {
-//   e.style.display = "none";
-//   console.log("cliqué");
 // });

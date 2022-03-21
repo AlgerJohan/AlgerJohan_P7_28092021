@@ -1,3 +1,8 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-family: "Raleway", sans-serif;
+}
+
 h1 {
   color: #d04f4f;
   font-size: 2rem;
@@ -38,11 +43,10 @@ h1 {
 }
 #dropdownGroup li:hover {
   cursor: pointer;
-  font-weight: bold;
+  font-size: 1.1rem;
 }
 #dropdownGroup li {
   margin-left: 5px;
-  max-width: 32%;
 }
 #dropdownGroup #ingredients {
   display: flex;
@@ -53,20 +57,40 @@ h1 {
   padding: 5px;
   overflow: hidden;
 }
-#dropdownGroup #ingredientsList {
+#dropdownGroup #ingredientsList #ingredients-tag-btn {
   background-color: #3282f7;
-  border-radius: 6px;
-  width: 49rem;
+  color: #fff;
+  height: 5rem;
+  width: 12rem;
+  display: block;
+}
+#dropdownGroup #ingredientsList img {
+  padding-left: 1rem;
 }
 #dropdownGroup #ingredientsList .dropdownParent {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1.4rem;
+  padding: 1rem;
+  width: 100%;
 }
 #dropdownGroup #ingredientsList .ingredientsList {
-  background-color: transparent;
-  position: relative;
+  background-color: #3282f7;
+  width: 44rem;
+  height: calc(1.5em + 0.75rem + 2px);
+  outline: none;
+  border-radius: 4px;
+}
+#dropdownGroup #ingredientsList .ingredientsList:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  cursor: pointer;
+}
+#dropdownGroup #ingredientsList input[type=text] {
+  color: white;
+  border: none;
+  border-color: transparent;
+  padding-right: 32rem;
 }
 #dropdownGroup #ingredientsList .ingredientsList::-moz-placeholder {
   text-align: center;
@@ -80,6 +104,24 @@ h1 {
   text-align: center;
   color: white;
 }
+#dropdownGroup #ingredientsList .opened-btn-ingredients {
+  background-color: #3282f7;
+  border-radius: 6px;
+  height: auto;
+  display: block;
+  display: none;
+}
+
+#dropdownGroup {
+  color: #fff;
+}
+#dropdownGroup li:hover {
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+#dropdownGroup li {
+  margin-left: 5px;
+}
 #dropdownGroup #appareils {
   display: flex;
   flex-direction: column;
@@ -89,14 +131,39 @@ h1 {
   padding: 5px;
   overflow: hidden;
 }
-#dropdownGroup #appareilsList {
-  margin-right: 1.5rem;
+#dropdownGroup #appareilsList #appareils-tag-btn {
   background-color: #68d9a4;
-  border-radius: 6px;
+  color: #fff;
+  height: 5rem;
+  width: 12rem;
+  display: block;
+}
+#dropdownGroup #appareilsList img {
+  padding-left: 1rem;
+}
+#dropdownGroup #appareilsList .dropdownParent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
 }
 #dropdownGroup #appareilsList .appareilsList {
-  background-color: transparent;
-  margin-top: 1.7rem;
+  background-color: #68d9a4;
+  width: 44rem;
+  height: calc(1.5em + 0.75rem + 2px);
+  outline: none;
+  border-radius: 4px;
+}
+#dropdownGroup #appareilsList .appareilsList:hover {
+  background-color: #00a881;
+  cursor: pointer;
+}
+#dropdownGroup #appareilsList input[type=text] {
+  color: white;
+  border: none;
+  border-color: transparent;
+  padding-right: 32rem;
 }
 #dropdownGroup #appareilsList .appareilsList::-moz-placeholder {
   text-align: center;
@@ -110,6 +177,24 @@ h1 {
   text-align: center;
   color: white;
 }
+#dropdownGroup #appareilsList .opened-btn-appareils {
+  background-color: #68d9a4;
+  border-radius: 6px;
+  height: auto;
+  display: block;
+  display: none;
+}
+
+#dropdownGroup {
+  color: #fff;
+}
+#dropdownGroup li:hover {
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+#dropdownGroup li {
+  margin-left: 5px;
+}
 #dropdownGroup #ustensiles {
   display: flex;
   flex-direction: column;
@@ -119,13 +204,39 @@ h1 {
   padding: 5px;
   overflow: hidden;
 }
-#dropdownGroup #ustensilesList {
+#dropdownGroup #ustensilesList #ustensiles-tag-btn {
   background-color: #ed6454;
-  border-radius: 6px;
+  color: #fff;
+  height: 5rem;
+  width: 12rem;
+  display: block;
+}
+#dropdownGroup #ustensilesList img {
+  padding-left: 1rem;
+}
+#dropdownGroup #ustensilesList .dropdownParent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
 }
 #dropdownGroup #ustensilesList .ustensilesList {
-  background-color: transparent;
-  margin-top: 1.7rem;
+  background-color: #ed6454;
+  width: 44rem;
+  height: calc(1.5em + 0.75rem + 2px);
+  outline: none;
+  border-radius: 4px;
+}
+#dropdownGroup #ustensilesList .ustensilesList:hover {
+  background-color: #ff5a47;
+  cursor: pointer;
+}
+#dropdownGroup #ustensilesList input[type=text] {
+  color: white;
+  border: none;
+  border-color: transparent;
+  padding-right: 32rem;
 }
 #dropdownGroup #ustensilesList .ustensilesList::-moz-placeholder {
   text-align: center;
@@ -138,6 +249,13 @@ h1 {
 #dropdownGroup #ustensilesList .ustensilesList::placeholder {
   text-align: center;
   color: white;
+}
+#dropdownGroup #ustensilesList .opened-btn-ustensiles {
+  background-color: #ed6454;
+  border-radius: 6px;
+  height: auto;
+  display: block;
+  display: none;
 }
 
 .card-text .ingredientRecipe p {
@@ -158,4 +276,9 @@ h1 {
 .backgroundColor {
   background-color: #e7e7e7;
   border-radius: 0 0 7px 7px;
+}
+
+h5,
+p {
+  color: black;
 }/*# sourceMappingURL=style.css.map */
