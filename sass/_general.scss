@@ -1,3 +1,7 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-family: "Raleway", sans-serif;
+}
 h1 {
   color: $headerColor;
   font-size: 2rem;
@@ -29,42 +33,93 @@ h1 {
   color: #fff;
 }
 
-#choice {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
+#dropdownGroup {
   color: #fff;
   li:hover {
     cursor: pointer;
-    font-weight: bold;
+    font-size: 1.1rem;
   }
   li {
     margin-left: 5px;
-    max-width: 32%;
   }
   #ingredients {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height: 23rem;
+    max-height: 34rem;
     list-style-type: none;
     padding: 5px;
+    overflow: hidden;
+    z-index: 1;
+    top: 28%;
+    position: absolute;
+    background-color: $primaryColor;
+    width: 53.1rem;
+    border-radius: 6px;
+    margin-top: 3rem;
   }
 
   #ingredientsList {
-    margin-right: 1.5rem;
-    background-color: $primaryColor;
-    border-radius: 6px;
-
+    padding-left: 0;
+    #ingredients-tag-btn {
+      background-color: $primaryColor;
+      color: #fff;
+      height: 5rem;
+      width: 12rem;
+      display: block;
+    }
+    img {
+      padding-left: 1rem;
+    }
+    .dropdownParent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      width: 53.1rem;
+      height: 7.1rem;
+    }
     .ingredientsList {
-      background-color: transparent;
-      margin-top: 1.7rem;
-      position: relative;
+      background-color: $primaryColor;
+      width: 44rem;
+      height: calc(1.5em + 0.75rem + 2px);
+      outline: none;
+      border-radius: 4px;
+    }
+    .ingredientsList:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+      cursor: pointer;
+    }
+    input[type="text"] {
+      color: white;
+      border: none;
+      border-color: transparent;
+      padding-right: 32rem;
+      opacity: 0.5;
     }
     .ingredientsList::placeholder {
       text-align: center;
       color: white;
     }
+    .opened-btn-ingredients {
+      background-color: $primaryColor;
+      border-radius: 6px;
+      height: auto;
+      display: block;
+      display: none;
+    }
+  }
+}
+//APPAREILS
+#dropdownGroup {
+  color: #fff;
+  li:hover {
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+  li {
+    margin-left: 5px;
   }
   #appareils {
     display: flex;
@@ -73,42 +128,145 @@ h1 {
     max-height: 23rem;
     list-style-type: none;
     padding: 5px;
-  }
-  #appareilsList {
-    margin-right: 1.5rem;
+    overflow: hidden;
+    z-index: 1;
+    top: 28%;
+    position: absolute;
     background-color: $successColor;
+    width: 20rem;
     border-radius: 6px;
+    margin-top: 3rem;
+  }
 
+  #appareilsList {
+    // width: 21.5rem;
+    #appareils-tag-btn {
+      background-color: $successColor;
+      color: #fff;
+      height: 5rem;
+      width: 12rem;
+      display: block;
+    }
+    img {
+      padding-left: 1rem;
+    }
+    .dropdownParent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      width: 20rem;
+      height: 7.1rem;
+    }
     .appareilsList {
-      background-color: transparent;
-      margin-top: 1.7rem;
+      background-color: $successColor;
+      width: 44rem;
+      height: calc(1.5em + 0.75rem + 2px);
+      outline: none;
+      border-radius: 4px;
+    }
+    .appareilsList:hover {
+      background-color: #00a881;
+      cursor: pointer;
+    }
+    input[type="text"] {
+      color: white;
+      border: none;
+      border-color: transparent;
+      opacity: 0.5;
     }
     .appareilsList::placeholder {
       text-align: center;
       color: white;
     }
+    .opened-btn-appareils {
+      background-color: $successColor;
+      border-radius: 6px;
+      height: auto;
+      display: block;
+      display: none;
+    }
+  }
+}
+//USTENSILS
+#dropdownGroup {
+  color: #fff;
+  li:hover {
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+  li {
+    margin-left: 5px;
   }
   #ustensiles {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height: 23rem;
+    max-height: 34rem;
     list-style-type: none;
     padding: 5px;
-  }
-  #ustensilesList {
+    overflow: hidden;
+    z-index: 1;
+    top: 28%;
+    position: absolute;
     background-color: $dangerColor;
+    width: 26rem;
     border-radius: 6px;
+    margin-top: 3rem;
+  }
+
+  #ustensilesList {
+    #ustensiles-tag-btn {
+      background-color: $dangerColor;
+      color: #fff;
+      height: 5rem;
+      width: 12rem;
+      display: block;
+    }
+    img {
+      padding-left: 1rem;
+    }
+    .dropdownParent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      width: 15rem;
+      height: 7.1rem;
+    }
     .ustensilesList {
-      background-color: transparent;
-      margin-top: 1.7rem;
+      background-color: $dangerColor;
+      width: 44rem;
+      height: calc(1.5em + 0.75rem + 2px);
+      outline: none;
+      border-radius: 4px;
+    }
+    .ustensilesList:hover {
+      background-color: #ff5a47;
+      cursor: pointer;
+    }
+    input[type="text"] {
+      color: white;
+      border: none;
+      border-color: transparent;
+      padding-right: 10rem;
+      opacity: 0.5;
     }
     .ustensilesList::placeholder {
       text-align: center;
       color: white;
     }
+    .opened-btn-ustensiles {
+      background-color: $dangerColor;
+      border-radius: 6px;
+      height: auto;
+      display: block;
+      display: none;
+      width: 26rem;
+    }
   }
 }
+
 .card-text {
   .ingredientRecipe p {
     text-overflow: ellipsis;
@@ -129,18 +287,8 @@ h1 {
   background-color: $backgroundColor;
   border-radius: 0 0 7px 7px;
 }
-// .dropdownIngredients {
-//   position: absolute;
-//   top: 23rem;
-//   left: 59rem;
-// }
-// .dropdownAppareils {
-//   position: absolute;
-//   top: 23rem;
-//   left: 74rem;
-// }
-// .dropdownUstensiles {
-//   position: absolute;
-//   top: 23rem;
-//   left: 89rem;
-// }
+h5,
+p,
+h2 {
+  color: black;
+}
