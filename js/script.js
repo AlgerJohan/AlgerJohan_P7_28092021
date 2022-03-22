@@ -173,7 +173,6 @@ function launchDropdownAppareils() {
 }
 dropdownDownAppareils.addEventListener("click", (e) => {
   launchDropdownAppareils();
-  console.log("click");
 });
 function upDropDownAppareils() {
   openedBtnAppareils.style.display = "none";
