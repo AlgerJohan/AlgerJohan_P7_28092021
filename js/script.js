@@ -198,15 +198,8 @@ function upDropDownUstensiles() {
 dropdownUpUstensiles.addEventListener("click", (e) => {
   upDropDownUstensiles();
 });
-// document.querySelectorAll(".card").forEach((card) => {
-//   card.addEventListener("click", (e) => {
-//     console.log(e);
-//     // let person = prompt("Choisissez une recette :", "e.target");
-//     // let text;
-//     // if (person == null || person == "") {
-//     //   text = "Entrez une recette.";
-//     // } else {
-//     //   text = "Bonjour " + person + "! Que voulez-vous manger?";
-//     // }
-//   });
-// });
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("click", (e) => {
+    alert("Recette sélectionnée");
+  });
+});

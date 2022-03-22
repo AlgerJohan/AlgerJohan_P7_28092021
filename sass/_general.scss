@@ -46,13 +46,21 @@ h1 {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height: 23rem;
+    max-height: 34rem;
     list-style-type: none;
     padding: 5px;
     overflow: hidden;
+    z-index: 1;
+    top: 28%;
+    position: absolute;
+    background-color: $primaryColor;
+    width: 53.1rem;
+    border-radius: 6px;
+    margin-top: 3rem;
   }
 
   #ingredientsList {
+    padding-left: 0;
     #ingredients-tag-btn {
       background-color: $primaryColor;
       color: #fff;
@@ -68,7 +76,8 @@ h1 {
       justify-content: space-between;
       align-items: center;
       padding: 1rem;
-      width: 100%;
+      width: 53.1rem;
+      height: 7.1rem;
     }
     .ingredientsList {
       background-color: $primaryColor;
@@ -87,6 +96,7 @@ h1 {
       border: none;
       border-color: transparent;
       padding-right: 32rem;
+      opacity: 0.5;
     }
     .ingredientsList::placeholder {
       text-align: center;
@@ -119,9 +129,17 @@ h1 {
     list-style-type: none;
     padding: 5px;
     overflow: hidden;
+    z-index: 1;
+    top: 28%;
+    position: absolute;
+    background-color: $successColor;
+    width: 20rem;
+    border-radius: 6px;
+    margin-top: 3rem;
   }
 
   #appareilsList {
+    // width: 21.5rem;
     #appareils-tag-btn {
       background-color: $successColor;
       color: #fff;
@@ -137,7 +155,8 @@ h1 {
       justify-content: space-between;
       align-items: center;
       padding: 1rem;
-      width: 100%;
+      width: 20rem;
+      height: 7.1rem;
     }
     .appareilsList {
       background-color: $successColor;
@@ -154,7 +173,7 @@ h1 {
       color: white;
       border: none;
       border-color: transparent;
-      padding-right: 32rem;
+      opacity: 0.5;
     }
     .appareilsList::placeholder {
       text-align: center;
@@ -183,10 +202,17 @@ h1 {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height: 23rem;
+    max-height: 34rem;
     list-style-type: none;
     padding: 5px;
     overflow: hidden;
+    z-index: 1;
+    top: 28%;
+    position: absolute;
+    background-color: $dangerColor;
+    width: 26rem;
+    border-radius: 6px;
+    margin-top: 3rem;
   }
 
   #ustensilesList {
@@ -205,7 +231,8 @@ h1 {
       justify-content: space-between;
       align-items: center;
       padding: 1rem;
-      width: 100%;
+      width: 15rem;
+      height: 7.1rem;
     }
     .ustensilesList {
       background-color: $dangerColor;
@@ -222,7 +249,8 @@ h1 {
       color: white;
       border: none;
       border-color: transparent;
-      padding-right: 32rem;
+      padding-right: 10rem;
+      opacity: 0.5;
     }
     .ustensilesList::placeholder {
       text-align: center;
@@ -234,6 +262,7 @@ h1 {
       height: auto;
       display: block;
       display: none;
+      width: 26rem;
     }
   }
 }
@@ -259,6 +288,7 @@ h1 {
   border-radius: 0 0 7px 7px;
 }
 h5,
-p {
+p,
+h2 {
   color: black;
 }
