@@ -150,6 +150,20 @@ const dropdownUpUstensiles = document.querySelector(".dropdownUpUstensiles");
 const ustensilesTagBtn = document.getElementById("ustensiles-tag-btn");
 const openedBtnUstensiles = document.querySelector(".opened-btn-ustensiles");
 
+/**
+ * The function launches a dropdown menu by adding an event listener to the dropdown down button.
+ *
+ * The function also adds an event listener to the dropdown up button.
+ *
+ * When the dropdown down button is clicked, the opened button is displayed and the tag button is
+ * hidden.
+ *
+ * When the dropdown up button is clicked, the tag button is displayed and the opened button is hidden.
+ * @param dropdownDown - the button that opens the dropdown
+ * @param dropdownUp - the button that closes the dropdown
+ * @param openedBtn - the button that opens the dropdown
+ * @param tagBtn - the button that will be used to open the dropdown
+ */
 function launchDropdown(dropdownDown, dropdownUp, openedBtn, tagBtn) {
   dropdownDown.addEventListener("click", () => {
     openedBtn.style.display = "block";
