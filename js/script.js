@@ -150,55 +150,17 @@ const dropdownUpUstensiles = document.querySelector(".dropdownUpUstensiles");
 const ustensilesTagBtn = document.getElementById("ustensiles-tag-btn");
 const openedBtnUstensiles = document.querySelector(".opened-btn-ustensiles");
 
-//Fonction qui ouvre et ferme le dropdown des ingrédients
-function launchDropdownIngredients() {
-  openedBtningredients.style.display = "block";
-  ingredientsTagBtn.style.display = "none";
-}
-dropdownDownIngredients.addEventListener("click", (e) => {
-  launchDropdownIngredients();
-});
-function upDropDownIngredients() {
-  openedBtningredients.style.display = "none";
-  ingredientsTagBtn.style.display = "block";
-}
-dropdownUpIngredients.addEventListener("click", (e) => {
-  upDropDownIngredients();
-});
-
-//Fonction qui ouvre et ferme le dropdown des appareils
-function launchDropdownAppareils() {
-  openedBtnAppareils.style.display = "block";
-  appareilsTagBtn.style.display = "none";
-}
-dropdownDownAppareils.addEventListener("click", (e) => {
-  launchDropdownAppareils();
-});
-function upDropDownAppareils() {
-  openedBtnAppareils.style.display = "none";
-  appareilsTagBtn.style.display = "block";
-}
-dropdownUpAppareils.addEventListener("click", (e) => {
-  upDropDownAppareils();
-});
-
-//Fonction qui ouvre et ferme le dropdown des ustensiles
-function launchDropdownUstensiles() {
-  openedBtnUstensiles.style.display = "block";
-  ustensilesTagBtn.style.display = "none";
-}
-dropdownDownUstensiles.addEventListener("click", (e) => {
-  launchDropdownUstensiles();
-});
-function upDropDownUstensiles() {
-  openedBtnUstensiles.style.display = "none";
-  ustensilesTagBtn.style.display = "block";
-}
-dropdownUpUstensiles.addEventListener("click", (e) => {
-  upDropDownUstensiles();
-});
-document.querySelectorAll(".card").forEach((card) => {
-  card.addEventListener("click", (e) => {
-    alert("Recette sélectionnée");
+function launchDropdown(dropdownDown, dropdownUp, openedBtn, tagBtn) {
+  dropdownDown.addEventListener("click", () => {
+    openedBtn.style.display = "block";
+    tagBtn.style.display = "none";
   });
-});
+  dropdownUp.addEventListener("click", () => {
+    tagBtn.style.display = "block";
+    openedBtn.style.display = "none";
+  });
+}
+
+launchDropdown(dropdownDownIngredients, dropdownUpIngredients, openedBtningredients, ingredientsTagBtn);
+launchDropdown(dropdownDownAppareils, dropdownUpAppareils, openedBtnAppareils, appareilsTagBtn);
+launchDropdown(dropdownDownUstensiles, dropdownUpUstensiles, openedBtnUstensiles, ustensilesTagBtn);
