@@ -11,14 +11,19 @@ function init() {
   //Filtre des recettes dans l'onglet recherche
   let searchText = document.querySelector(".form-control").value;
   searchText = searchText.length > 2 ? searchText : "";
-  // let recipesFiltred = "";
-
   let recipesFiltred = [];
   if (searchText) {
-    for (const recipe of recipesFiltred) {
+    for (const recipe of recipes) {
+      let isFound = false;
+      for (const ingredient of recipe.ingredients) {
+        if (ingredient.ingredient.includes(searchText)) {
+          isFound = true;
+          break;
+        }
+      }
       if (
         clearText(recipe.name).includes(clearText(searchText)) ||
-        recipe.ingredients.some((ingredient) => clearText(ingredient.ingredient).includes(clearText(searchText))) ||
+        isFound ||
         recipe.description.includes(clearText(searchText))
       ) {
         recipesFiltred.push(recipe);
